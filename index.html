@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oslocation – Oslo & Norway travel agency. Discover fjords, northern lights, Viking heritage and world-class culture with our expert guided tours.">
+  <meta property="og:title" content="Oslocation – Discover Oslo & Norway">
+  <meta property="og:description" content="Handcrafted tours for the discerning traveller. Experience the magic of Scandinavia's most vibrant capital.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&q=80">
+  <title>Oslocation – Oslo &amp; Norway Travel</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     PRELOADER
+     ════════════════════════════════════════════════════════ -->
+<div id="preloader">
+  <div class="preloader-logo">Oslo<span>cation</span></div>
+  <div class="preloader-bar"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     BACK TO TOP
+     ════════════════════════════════════════════════════════ -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo" aria-label="Oslocation – Home">
+      <span class="logo-name">Oslo<span style="color:var(--accent)">cation</span></span>
+      <span class="logo-tag">Oslo &amp; Norway Travel</span>
+    </a>
+
+    <!-- Desktop nav + mobile panel -->
+    <div id="nav-menu" class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#hero"         data-i18n="nav_home">Home</a></li>
+        <li><a href="#tours"        data-i18n="nav_tours">Tours</a></li>
+        <li><a href="#destinations" data-i18n="nav_destinations">Destinations</a></li>
+        <li><a href="#features"     data-i18n="nav_about">About Oslo</a></li>
+        <li><a href="#contact"      data-i18n="nav_contact">Contact</a></li>
+      </ul>
+
+      <!-- Language switcher -->
+      <div class="lang-switcher" role="group" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="en" aria-label="English">🇬🇧 EN</button>
+        <button class="lang-btn"        data-lang="de" aria-label="Deutsch">🇩🇪 DE</button>
+        <button class="lang-btn"        data-lang="fr" aria-label="Français">🇫🇷 FR</button>
+        <button class="lang-btn"        data-lang="no" aria-label="Norsk">🇳🇴 NO</button>
+      </div>
+
+      <a href="#contact" class="nav-book btn-primary" data-i18n="nav_book">Book Now</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg" role="img" aria-label="Aerial view of Norwegian fjord"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" data-i18n="hero_badge">🇳🇴 Norway's Premier Travel Experience</div>
+    <h1 data-i18n="hero_title">Discover Oslo &amp; Norway</h1>
+    <p data-i18n="hero_subtitle">Experience the magic of Scandinavia's most vibrant capital — where fjords, culture and Nordic spirit meet</p>
+    <div class="hero-buttons">
+      <a href="#tours"   class="btn-primary"   data-i18n="hero_cta">Explore Tours</a>
+      <a href="#features" class="btn-secondary" data-i18n="hero_cta2">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     STATS BANNER
+     ════════════════════════════════════════════════════════ -->
+<section id="stats" aria-label="Key statistics">
+  <div class="container">
+    <div class="stats-grid">
+
+      <div class="stat-item reveal">
+        <div class="stat-number" data-count="50+" data-i18n="stat1_num">50+</div>
+        <div class="stat-label" data-i18n="stat1_label">Unique Tours</div>
+      </div>
+
+      <div class="stat-item reveal">
+        <div class="stat-number" data-count="10000+" data-i18n="stat2_num">10,000+</div>
+        <div class="stat-label" data-i18n="stat2_label">Happy Travellers</div>
+      </div>
+
+      <div class="stat-item reveal">
+        <div class="stat-number" data-i18n="stat3_num">4.9</div>
+        <div class="stat-label" data-i18n="stat3_label">Average Rating</div>
+      </div>
+
+      <div class="stat-item reveal">
+        <div class="stat-number" data-count="15+" data-i18n="stat4_num">15+</div>
+        <div class="stat-label" data-i18n="stat4_label">Years Experience</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     WHY OSLO / FEATURES
+     ════════════════════════════════════════════════════════ -->
+<section id="features" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="features-title" data-i18n="features_title">Why Choose Oslo?</h2>
+      <div class="underline"></div>
+      <p data-i18n="features_subtitle">Norway's capital offers something extraordinary for every kind of traveller</p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fas fa-landmark" aria-hidden="true"></i></div>
+        <h3 data-i18n="feat1_title">World-Class Culture</h3>
+        <p data-i18n="feat1_desc">Explore world-renowned museums, stunning architecture and a thriving arts scene that defines modern Norway.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fas fa-mountain" aria-hidden="true"></i></div>
+        <h3 data-i18n="feat2_title">Breathtaking Nature</h3>
+        <p data-i18n="feat2_desc">From the majestic Oslofjord to surrounding forests and mountains — nature is always just moments away.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+        <h3 data-i18n="feat3_title">Safe &amp; Sustainable</h3>
+        <p data-i18n="feat3_desc">Oslo consistently ranks among the world's safest and most sustainable cities. Travel with complete peace of mind.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fas fa-compass" aria-hidden="true"></i></div>
+        <h3 data-i18n="feat4_title">Expert Local Guides</h3>
+        <p data-i18n="feat4_desc">Our passionate guides share insider knowledge and hidden gems that only true Oslo locals know about.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     TOURS
+     ════════════════════════════════════════════════════════ -->
+<section id="tours" aria-labelledby="tours-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="tours-title" data-i18n="tours_title">Our Oslo &amp; Norway Tours</h2>
+      <div class="underline"></div>
+      <p data-i18n="tours_subtitle">Handcrafted experiences for the discerning traveller</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="tour-filters" role="group" aria-label="Tour category filter">
+      <button class="filter-btn active" data-filter="all"       data-i18n="filter_all">All Tours</button>
+      <button class="filter-btn"        data-filter="city"      data-i18n="filter_city">City</button>
+      <button class="filter-btn"        data-filter="nature"    data-i18n="filter_nature">Nature</button>
+      <button class="filter-btn"        data-filter="adventure" data-i18n="filter_adventure">Adventure</button>
+      <button class="filter-btn"        data-filter="culture"   data-i18n="filter_culture">Culture</button>
+    </div>
+
+    <div class="tours-grid">
+
+      <!-- Tour 1: Oslo City Explorer -->
+      <article class="tour-card reveal" data-category="city">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1579546448048-2fc25efe7e64?auto=format&fit=crop&w=800&q=80"
+            alt="Oslo waterfront and opera house"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#003057,#1a5276)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_city">City</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour1_name">Oslo City Explorer</h3>
+          <p data-i18n="tour1_desc">Discover Oslo's iconic landmarks — the Royal Palace, Karl Johans gate and the vibrant Aker Brygge waterfront.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour1_dur">2 days</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 12</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour1_price">€299</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 2: Oslofjord Safari -->
+      <article class="tour-card reveal" data-category="nature">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80"
+            alt="Oslofjord cruise with scenic islands"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#003057,#0e4a7c)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_nature">Nature</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour2_name">Oslofjord Safari</h3>
+          <p data-i18n="tour2_desc">Cruise the stunning Oslofjord, visit island communities and experience Norway's rich maritime heritage.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour2_dur">1 day</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 20</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour2_price">€149</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 3: Viking Heritage -->
+      <article class="tour-card reveal" data-category="culture">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=800&q=80"
+            alt="Viking ships and Lofoten Islands Norway"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#2d1b0e,#6b3f1a)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_culture">Culture</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour3_name">Viking Heritage Tour</h3>
+          <p data-i18n="tour3_desc">Step back in time at the Viking Ship Museum and discover the legendary seafarers who shaped world history.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour3_dur">1 day</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 15</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour3_price">€129</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 4: Holmenkollen Winter Magic -->
+      <article class="tour-card reveal" data-category="adventure">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+            alt="Holmenkollen ski jump and snowy Oslo winter"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#c8e8f8,#6ab3d4)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_adventure">Adventure</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour4_name">Holmenkollen Winter Magic</h3>
+          <p data-i18n="tour4_desc">Experience Norway's iconic ski jump, cross-country skiing trails and breathtaking winter panoramas.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour4_dur">2 days</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 10</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour4_price">€349</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 5: Bergen & Fjords -->
+      <article class="tour-card reveal" data-category="nature">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1513553404607-988bf2703777?auto=format&fit=crop&w=800&q=80"
+            alt="Bergen Bryggen colorful wharf houses"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#003057)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_nature">Nature</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour5_name">Bergen &amp; the Fjords</h3>
+          <p data-i18n="tour5_desc">Journey to the gateway of the fjords — explore Bergen's UNESCO-listed Bryggen and the majestic Hardangerfjord.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour5_dur">3 days</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 12</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour5_price">€549</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 6: Northern Lights -->
+      <article class="tour-card reveal" data-category="adventure">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1540039155831-40842ab1f1ae?auto=format&fit=crop&w=800&q=80"
+            alt="Northern Lights Aurora Borealis over Norwegian mountains"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#0d1b2a,#1a3a5c)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_adventure">Adventure</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 5.0</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour6_name">Northern Lights Odyssey</h3>
+          <p data-i18n="tour6_desc">Chase the magical Aurora Borealis across Norway's pristine Arctic landscapes — a once-in-a-lifetime adventure.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour6_dur">5 days</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 8</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour6_price">€1,299</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 7: Flåm Railway -->
+      <article class="tour-card reveal" data-category="nature">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+            alt="Flåm Railway scenic mountain route and Sognefjord"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#2d5a27,#1a3a14)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_nature">Nature</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour7_name">Flåm Railway &amp; Sognefjord</h3>
+          <p data-i18n="tour7_desc">Ride one of the world's most scenic railways and cruise the majestic Sognefjord, Norway's longest fjord.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour7_dur">2 days</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 14</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour7_price">€449</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tour 8: Oslo Arts & Culture -->
+      <article class="tour-card reveal" data-category="culture">
+        <div class="tour-img">
+          <img
+            src="https://images.unsplash.com/photo-1607847323685-b5e2c8c7c9d0?auto=format&fit=crop&w=800&q=80"
+            alt="MUNCH Museum and Oslo cultural scene"
+            loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#3d1f6e,#1a0a3c)';this.style.minHeight='200px'">
+          <span class="tour-category" data-i18n="filter_culture">Culture</span>
+          <span class="tour-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tour8_name">Oslo Arts &amp; Culture</h3>
+          <p data-i18n="tour8_desc">Immerse yourself in Oslo's cultural scene — the MUNCH Museum, National Gallery and Vigeland Sculpture Park.</p>
+          <div class="tour-meta">
+            <span><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="tour8_dur">1 day</span></span>
+            <span><i class="fas fa-users" aria-hidden="true"></i> Max 16</span>
+          </div>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span data-i18n="from_price">From</span>
+              <strong data-i18n="tour8_price">€99</strong>
+            </div>
+            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.tours-grid -->
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     VIDEO SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="video-section" aria-labelledby="video-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="video-title" data-i18n="video_title">Experience Oslo in Motion</h2>
+      <div class="underline"></div>
+      <p data-i18n="video_subtitle">Let Norway's beauty speak for itself</p>
+    </div>
+    <div class="video-wrapper reveal">
+      <!--
+        Replace the YouTube video ID below with your preferred Oslo / Norway video.
+        Current ID: K_FQnrXn8eM  (Update as needed)
+        Example Visit Oslo videos: search "Visit Oslo" on YouTube for official content.
+      -->
+      <iframe
+        src="https://www.youtube.com/embed/K_FQnrXn8eM?rel=0&modestbranding=1"
+        title="Discover Oslo – Official Travel Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     DESTINATIONS
+     ════════════════════════════════════════════════════════ -->
+<section id="destinations" aria-labelledby="destinations-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="destinations-title" data-i18n="destinations_title">Iconic Oslo Destinations</h2>
+      <div class="underline"></div>
+      <p data-i18n="destinations_subtitle">Places that will take your breath away</p>
+    </div>
+
+    <div class="destinations-grid">
+
+      <!-- Oslo City Centre -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1611531736597-de2d4265fba3?auto=format&fit=crop&w=700&q=80"
+          alt="Oslo City Centre"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#003057,#1a5276)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest1_name">Oslo City Centre</h3>
+          <p class="dest-sub" data-i18n="dest1_sub">Capital &amp; Culture</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+      <!-- Oslofjord -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=700&q=80"
+          alt="The Oslofjord"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#0e4a7c,#003057)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest2_name">The Oslofjord</h3>
+          <p class="dest-sub" data-i18n="dest2_sub">Nature &amp; Maritime</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+      <!-- Bygdøy Peninsula -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?auto=format&fit=crop&w=700&q=80"
+          alt="Bygdøy Peninsula Oslo museums"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#2d5a27,#1a3a14)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest3_name">Bygdøy Peninsula</h3>
+          <p class="dest-sub" data-i18n="dest3_sub">Museums &amp; History</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+      <!-- Holmenkollen -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1468421201266-ec88b2809284?auto=format&fit=crop&w=700&q=80"
+          alt="Holmenkollen ski jump Oslo"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#5a8fb5,#2a6082)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest4_name">Holmenkollen</h3>
+          <p class="dest-sub" data-i18n="dest4_sub">Sport &amp; Adventure</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+      <!-- Vigeland Park -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1569880153113-76161462a08a?auto=format&fit=crop&w=700&q=80"
+          alt="Vigeland Sculpture Park Oslo"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#6b3d2e,#3d1f0e)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest5_name">Vigeland Park</h3>
+          <p class="dest-sub" data-i18n="dest5_sub">Art &amp; Sculpture</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+      <!-- Aker Brygge -->
+      <div class="dest-card reveal">
+        <img
+          src="https://images.unsplash.com/photo-1565007974674-01b0e0a09c2e?auto=format&fit=crop&w=700&q=80"
+          alt="Aker Brygge waterfront Oslo"
+          loading="lazy"
+          onerror="this.src='';this.style.background='linear-gradient(135deg,#003057,#001f3d)'">
+        <div class="dest-overlay">
+          <h3 data-i18n="dest6_name">Aker Brygge</h3>
+          <p class="dest-sub" data-i18n="dest6_sub">Waterfront &amp; Dining</p>
+          <a href="#contact" class="btn-explore" data-i18n="explore">Explore</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     GALLERY
+     ════════════════════════════════════════════════════════ -->
+<section id="gallery" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="gallery-title" data-i18n="gallery_title">Oslo Through Our Lens</h2>
+      <div class="underline"></div>
+      <p data-i18n="gallery_subtitle">Moments captured in Norway's magnificent capital</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80" alt="Norwegian fjord aerial view" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1540039155831-40842ab1f1ae?auto=format&fit=crop&w=500&q=80" alt="Northern Lights Aurora Borealis" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1513553404607-988bf2703777?auto=format&fit=crop&w=500&q=80" alt="Bergen Bryggen colourful wharf" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=500&q=80" alt="Lofoten Islands red fishing cabins" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80" alt="Mountain panorama Norway" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1579546448048-2fc25efe7e64?auto=format&fit=crop&w=500&q=80" alt="Oslo city skyline" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=500&q=80" alt="Norwegian winter landscape snow" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=80" alt="Norwegian fjord waters" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1468421201266-ec88b2809284?auto=format&fit=crop&w=500&q=80" alt="Winter skiing Norway" loading="lazy">
+        <div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ════════════════════════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="test-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="test-title" data-i18n="test_title">What Our Travellers Say</h2>
+      <div class="underline"></div>
+      <p data-i18n="test_subtitle">Real experiences from real travellers</p>
+    </div>
+
+    <div class="testimonials-wrapper reveal">
+      <div class="testimonials-track">
+
+        <div class="testimonial-card active">
+          <div class="test-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote data-i18n="test1_text">
+            The Oslo City Explorer tour was absolutely fantastic! Our guide's knowledge of the city's history made every moment unforgettable. We'll definitely be back.
+          </blockquote>
+          <div class="test-author">
+            <div class="test-avatar" aria-hidden="true">🇬🇧</div>
+            <div class="test-info">
+              <strong data-i18n="test1_name">Emma L.</strong>
+              <span data-i18n="test1_from">United Kingdom</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote data-i18n="test2_text">
+            The Northern Lights Odyssey exceeded all our expectations. Seeing the Aurora Borealis dancing over the Arctic mountains was a spiritual experience.
+          </blockquote>
+          <div class="test-author">
+            <div class="test-avatar" aria-hidden="true">🇩🇪</div>
+            <div class="test-info">
+              <strong data-i18n="test2_name">Hans M.</strong>
+              <span data-i18n="test2_from">Germany</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote data-i18n="test3_text">
+            Bergen and the Fjords tour was perfectly organised. Breathtaking scenery, superb accommodation, and a guide with genuine passion for Norway.
+          </blockquote>
+          <div class="test-author">
+            <div class="test-avatar" aria-hidden="true">🇫🇷</div>
+            <div class="test-info">
+              <strong data-i18n="test3_name">Marie D.</strong>
+              <span data-i18n="test3_from">France</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.testimonials-track -->
+
+      <div class="test-controls">
+        <button class="test-prev" aria-label="Previous testimonial"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <div class="test-dots" role="group" aria-label="Testimonial navigation"></div>
+        <button class="test-next" aria-label="Next testimonial"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     CTA BANNER
+     ════════════════════════════════════════════════════════ -->
+<section id="cta-banner" aria-label="Call to action">
+  <div class="container reveal">
+    <h2 data-i18n="cta_title">Ready to Experience Oslo?</h2>
+    <p data-i18n="cta_subtitle">Let us craft your perfect Norwegian adventure</p>
+    <a href="#contact" class="btn-cta" data-i18n="cta_button">Start Planning</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACT
+     ════════════════════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="contact-title" data-i18n="contact_title">Get in Touch</h2>
+      <div class="underline"></div>
+      <p data-i18n="contact_subtitle">We're here to help plan your perfect Oslo experience</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Contact info -->
+      <div class="contact-info reveal">
+        <h3 data-i18n="contact_title">Get in Touch</h3>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p data-i18n="contact_address">Aker Brygge 1, 0150 Oslo, Norway</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+4722000000" data-i18n="contact_phone">+47 22 00 00 00</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:info@oslocation.no" data-i18n="contact_email">info@oslocation.no</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
+          <div>
+            <h4>Opening Hours</h4>
+            <p data-i18n="contact_hours">Mon – Fri: 09:00 – 18:00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="contact-form-card reveal">
+        <div id="form-success-msg" class="form-success" role="alert"></div>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname" data-i18n="form_name">Your Name</label>
+              <input type="text" id="fname" name="name" required
+                     data-i18n-ph="form_name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label for="femail" data-i18n="form_email">Email Address</label>
+              <input type="email" id="femail" name="email" required
+                     data-i18n-ph="form_email" placeholder="Email Address">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fphone" data-i18n="form_phone">Phone Number</label>
+              <input type="tel" id="fphone" name="phone"
+                     data-i18n-ph="form_phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <label for="ftour" data-i18n="form_tour">Tour of Interest</label>
+              <select id="ftour" name="tour">
+                <option value="">— Select a tour —</option>
+                <option value="oslo-city">Oslo City Explorer</option>
+                <option value="fjord-safari">Oslofjord Safari</option>
+                <option value="viking">Viking Heritage Tour</option>
+                <option value="holmenkollen">Holmenkollen Winter Magic</option>
+                <option value="bergen">Bergen &amp; the Fjords</option>
+                <option value="northern-lights">Northern Lights Odyssey</option>
+                <option value="flam">Flåm Railway &amp; Sognefjord</option>
+                <option value="arts">Oslo Arts &amp; Culture</option>
+                <option value="custom">Custom / Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fmessage" data-i18n="form_message">Your Message</label>
+            <textarea id="fmessage" name="message" rows="5"
+                      data-i18n-ph="form_message" placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-i18n="form_submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════ -->
+<div class="flag-bar" aria-hidden="true"></div>
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">Oslo<span>cation</span></div>
+        <p data-i18n="footer_desc">Your trusted partner for discovering the magic of Oslo and Norway. We craft unforgettable experiences for travellers from around the world.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter / X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="TripAdvisor"><i class="fab fa-tripadvisor" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_links">Quick Links</h4>
+        <ul>
+          <li><a href="#hero"         data-i18n="nav_home">Home</a></li>
+          <li><a href="#tours"        data-i18n="nav_tours">Tours</a></li>
+          <li><a href="#destinations" data-i18n="nav_destinations">Destinations</a></li>
+          <li><a href="#features"     data-i18n="nav_about">About Oslo</a></li>
+          <li><a href="#gallery"      data-i18n="gallery_title">Gallery</a></li>
+          <li><a href="#contact"      data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Destinations -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_dest_title">Destinations</h4>
+        <ul>
+          <li><a href="#destinations" data-i18n="dest1_name">Oslo City Centre</a></li>
+          <li><a href="#destinations" data-i18n="dest2_name">The Oslofjord</a></li>
+          <li><a href="#destinations" data-i18n="dest3_name">Bygdøy Peninsula</a></li>
+          <li><a href="#destinations" data-i18n="dest4_name">Holmenkollen</a></li>
+          <li><a href="#destinations" data-i18n="dest5_name">Vigeland Park</a></li>
+          <li><a href="#destinations" data-i18n="dest6_name">Aker Brygge</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_newsletter">Newsletter</h4>
+        <p style="font-size:.88rem;margin-bottom:.8rem;" data-i18n="footer_newsletter_text">Subscribe for Oslo travel inspiration and exclusive offers</p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email"
+                 data-i18n-ph="footer_email_ph"
+                 placeholder="Your email address"
+                 aria-label="Newsletter email">
+          <button type="submit" data-i18n="footer_subscribe">Subscribe</button>
+        </form>
+        <p style="margin-top:1.2rem;font-size:.82rem;opacity:.6;">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          &nbsp;<span data-i18n="contact_address">Aker Brygge 1, 0150 Oslo</span>
+        </p>
+        <p style="margin-top:.4rem;font-size:.82rem;opacity:.6;">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          &nbsp;<a href="mailto:info@oslocation.no" style="color:inherit">info@oslocation.no</a>
+        </p>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Oslocation. <span data-i18n="footer_rights">All rights reserved.</span></p>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="#" data-i18n="footer_terms">Terms of Service</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
