@@ -9,7 +9,7 @@ const i18n = {
     nav_home: "Home",
     nav_tours: "Tours",
     nav_destinations: "Destinations",
-    nav_about: "About Kendra",
+    nav_about: "Meet Kendra",
     nav_contact: "Contact",
     nav_book: "Request Booking",
 
