@@ -1,0 +1,25 @@
+{
+  "reviews": [
+    {
+      "name": "Emma L.",
+      "location": "United Kingdom",
+      "tour": "Oslo City Explorer",
+      "rating": 5,
+      "text": "The Oslo City Explorer tour was absolutely fantastic! Our guide's knowledge of the city's history made every moment unforgettable. We'll definitely be back."
+    },
+    {
+      "name": "Hans M.",
+      "location": "Germany",
+      "tour": "Northern Lights Odyssey",
+      "rating": 5,
+      "text": "The Northern Lights Odyssey exceeded all our expectations. Seeing the Aurora Borealis dancing over the Arctic mountains was a spiritual experience."
+    },
+    {
+      "name": "Marie D.",
+      "location": "France",
+      "tour": "Bergen & the Fjords",
+      "rating": 5,
+      "text": "Bergen and the Fjords tour was perfectly organised. Breathtaking scenery, superb accommodation, and a guide with genuine passion for Norway."
+    }
+  ]
+}

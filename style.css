@@ -1068,6 +1068,97 @@ section { padding: 5rem 0; }
   transform: translateY(-2px);
 }
 
+/* ── Reviews ─────────────────────────────────────────────── */
+#reviews {
+  background: var(--light);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.reviews-submit-card,
+.approved-reviews-card,
+.booking-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+}
+
+.reviews-submit-card h3,
+.approved-reviews-card h3,
+.booking-card h3 {
+  color: var(--primary);
+  margin-bottom: .7rem;
+}
+
+.approved-reviews-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.approved-review-item {
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--light);
+}
+
+.approved-review-item blockquote {
+  font-style: italic;
+  margin-bottom: .6rem;
+}
+
+.approved-review-item footer {
+  color: var(--gray);
+  font-size: .9rem;
+}
+
+/* ── Booking ─────────────────────────────────────────────── */
+#booking {
+  background: var(--white);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.booking-provider-note {
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.booking-availability-list {
+  list-style: disc;
+  margin: 0 0 1.4rem 1.2rem;
+  color: var(--dark);
+}
+
+.booking-availability-list li + li {
+  margin-top: .4rem;
+}
+
+.booking-action {
+  display: inline-block;
+  border-radius: 30px;
+  padding: .9rem 1.6rem;
+}
+
+.booking-embed-wrapper iframe {
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+}
+
 /* ── Contact ────────────────────────────────────────────── */
 #contact {
   background: var(--white);
@@ -1492,6 +1583,8 @@ section { padding: 5rem 0; }
   .stats-grid          { grid-template-columns: repeat(2, 1fr); }
   .stat-item:nth-child(2) { border-right: none; }
   .destinations-grid   { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid        { grid-template-columns: 1fr; }
+  .booking-grid        { grid-template-columns: 1fr; }
   .contact-grid        { grid-template-columns: 1fr; }
   .contact-highlights  { grid-template-columns: 1fr 1fr; }
   .nav-links, .lang-switcher, .nav-book { display: none; }
