@@ -127,11 +127,11 @@ const i18n = {
     test3_from: "Lyon",
 
     cta_title: "Ready to Explore Oslo with Kendra?",
-    cta_subtitle: "Send a request and get a tailored private tour proposal.",
+    cta_subtitle: "Send a booking request and get a tailored private tour proposal.",
     cta_button: "Request Your Tour",
 
     contact_title: "Contact & Booking Requests",
-    contact_subtitle: "Booking is request/approval based. Reach out and Kendra will reply personally.",
+    contact_subtitle: "Booking is request/approval based. Reach out and Kendra will reply personally (usually within 24 hours).",
     contact_address: "Kendra Sandum · Authorized Oslo Guide, Owner",
     contact_phone: "+47 90 93 99 14",
     contact_email: "kendra@oslocation.com",
@@ -142,15 +142,15 @@ const i18n = {
     form_tour: "Preferred Tour",
     form_message: "Travel details & preferences",
     form_submit: "Send Booking Request",
-    form_success: "Thanks! Your request was sent. Kendra will confirm availability by email.",
-    reviews_note: "Reviews are curated and published after approval to keep quality high and spam low.",
-    reviews_link: "Submit a review request",
+    form_success: "Thanks! Your request was sent. Kendra will review and confirm availability by email.",
+    reviews_note: "Only approved guest reviews are published. Every submission is checked before it appears.",
+    reviews_link: "Request to submit a review",
     highlight_website: "Website",
     highlight_instagram: "Instagram",
     highlight_tour_style: "Tour style",
     highlight_tour_style_value: "Private, tailored, request & approval",
     contact_intro: "Send a booking request and Kendra will confirm availability by email before any tour is finalized.",
-    form_note: "Booking is request-based (not instant checkout). You will get a personal confirmation and proposed plan.",
+    form_note: "Booking is request-based (not instant checkout). You will receive personal approval and next steps.",
 
     footer_desc: "OSLOCATION — Recreation. Vacation. Exploration. Private tours in Oslo with Kendra Sandum.",
     footer_links: "Quick Links",
@@ -888,7 +888,7 @@ function initBookingSection() {
   const embed = document.getElementById("booking-embed");
 
   if (providerNote) {
-    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}`;
+    providerNote.textContent = `Request channel: ${siteConfig.booking.providerName} (availability is confirmed manually).`;
   }
 
   if (availabilityList) {
@@ -911,7 +911,7 @@ function initBookingSection() {
       bookingLink.addEventListener("click", e => {
         e.preventDefault();
         if (providerNote) {
-          providerNote.textContent = `Provider: ${siteConfig.booking.providerName}. Booking link is not configured yet.`;
+          providerNote.textContent = `Request channel: ${siteConfig.booking.providerName}. Request calendar is not configured yet.`;
         }
         console.warn("Booking URL is not configured. Set OSLOCATION_CONFIG.booking.bookingUrl in site-config.js.");
       });
@@ -929,6 +929,10 @@ function renderApprovedReviews(reviews) {
   if (!container) return;
 
   container.innerHTML = "";
+  if (!reviews.length) {
+    container.textContent = "No approved reviews are published yet.";
+    return;
+  }
   reviews.forEach(review => {
     const article = document.createElement("article");
     article.className = "approved-review-item";
@@ -941,14 +945,25 @@ function renderApprovedReviews(reviews) {
     const quote = document.createElement("blockquote");
     quote.textContent = review.text || "";
 
-    const footer = document.createElement("footer");
+    const rating = document.createElement("p");
+    rating.className = "approved-review-rating";
+    rating.textContent = stars;
+
+    const meta = document.createElement("p");
+    meta.className = "approved-review-meta";
     const name = review.name || "Guest";
     const location = review.location ? `, ${review.location}` : "";
     const tour = review.tour ? ` · ${review.tour}` : "";
-    footer.textContent = `${stars} — ${name}${location}${tour}`;
+    meta.textContent = `${name}${location}${tour}`;
+
+    const status = document.createElement("p");
+    status.className = "approved-review-status";
+    status.textContent = "Approved review · Published by OSLOCATION";
 
     article.appendChild(quote);
-    article.appendChild(footer);
+    article.appendChild(rating);
+    article.appendChild(meta);
+    article.appendChild(status);
     container.appendChild(article);
   });
 }

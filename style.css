@@ -1102,21 +1102,50 @@ section { padding: 5rem 0; }
   margin-top: 1rem;
 }
 
+.approved-reviews-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .9rem;
+}
+
+.approved-reviews-trust span {
+  background: var(--light);
+  border: 1px solid var(--gray-light);
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  font-size: .75rem;
+  color: var(--primary-dark);
+}
+
 .approved-review-item {
   border: 1px solid var(--gray-light);
   border-radius: var(--radius);
-  padding: 1rem;
-  background: var(--light);
+  padding: 1rem 1rem .9rem;
+  background: linear-gradient(180deg, #fbfeff 0%, var(--light) 100%);
 }
 
 .approved-review-item blockquote {
   font-style: italic;
-  margin-bottom: .6rem;
+  margin-bottom: .75rem;
 }
 
-.approved-review-item footer {
-  color: var(--gray);
+.approved-review-rating {
+  color: #b07300;
+  letter-spacing: .1em;
+  font-size: .82rem;
+  margin-bottom: .15rem;
+}
+
+.approved-review-meta {
+  color: var(--dark);
   font-size: .9rem;
+  margin-bottom: .2rem;
+}
+
+.approved-review-status {
+  color: var(--gray);
+  font-size: .78rem;
 }
 
 /* ── Booking ─────────────────────────────────────────────── */
@@ -1133,7 +1162,21 @@ section { padding: 5rem 0; }
 
 .booking-provider-note {
   color: var(--gray);
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+}
+
+.booking-steps {
+  list-style: none;
+  display: grid;
+  gap: .45rem;
+}
+
+.booking-steps li {
+  background: var(--light);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: .55rem .7rem;
+  font-size: .9rem;
 }
 
 .booking-availability-list {
@@ -1150,6 +1193,20 @@ section { padding: 5rem 0; }
   display: inline-block;
   border-radius: 30px;
   padding: .9rem 1.6rem;
+}
+
+.booking-alt-actions {
+  margin-top: .9rem;
+  display: flex;
+  gap: .9rem;
+  flex-wrap: wrap;
+}
+
+.booking-alt-actions a {
+  font-size: .86rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--primary);
 }
 
 .booking-embed-wrapper iframe {
@@ -1298,6 +1355,18 @@ section { padding: 5rem 0; }
   font-weight: 600;
   color: var(--primary);
   border-bottom: 1px solid rgba(27,79,138,.25);
+}
+
+.reviews-trust-note {
+  font-size: .86rem;
+  color: var(--gray);
+  margin: .65rem 0 .95rem;
+}
+
+.reviews-trust-note a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .contact-highlights {

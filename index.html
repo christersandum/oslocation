@@ -628,8 +628,8 @@
       <h2 id="test-title" data-i18n="test_title">What Our Travellers Say</h2>
       <div class="underline"></div>
       <p data-i18n="test_subtitle">Real experiences from real travellers</p>
-      <p class="reviews-note" data-i18n="reviews_note">Reviews are curated and published after approval to keep quality high and spam low.</p>
-      <a class="reviews-link" href="mailto:kendra@oslocation.com?subject=Review%20Submission%20for%20OSLOCATION" data-i18n="reviews_link">Submit a review request</a>
+      <p class="reviews-note" data-i18n="reviews_note">Only approved guest reviews are published. Every submission is checked before it appears.</p>
+      <a class="reviews-link" href="mailto:kendra@oslocation.com?subject=Review%20Submission%20for%20OSLOCATION" data-i18n="reviews_link">Request to submit a review</a>
     </div>
 
     <div class="testimonials-wrapper reveal">
@@ -702,15 +702,16 @@
 <section id="reviews" aria-labelledby="reviews-title">
   <div class="container">
     <div class="section-header reveal">
-      <h2 id="reviews-title">Customer Reviews</h2>
+      <h2 id="reviews-title">Approved Guest Reviews</h2>
       <div class="underline"></div>
-      <p>All new reviews are moderated before publishing. Submit your review below for approval.</p>
+      <p>Every review request is moderated before publishing so future guests can trust what they read.</p>
     </div>
 
     <div class="reviews-grid">
       <article class="reviews-submit-card reveal">
         <h3>Submit a Review</h3>
-        <p>Your review is sent to our moderation inbox for approval before it appears on this site (typically within 2–3 business days).</p>
+        <p>Share your experience. Each submission is reviewed for relevance and spam before approved reviews are published (typically within 2–3 business days).</p>
+        <p class="reviews-trust-note">Prefer direct feedback? Email <a href="mailto:kendra@oslocation.com">kendra@oslocation.com</a> or message on <a href="https://wa.me/4790939914" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
         <div id="review-success-msg" class="form-success" role="alert"></div>
         <form id="reviewForm">
           <div class="form-row">
@@ -753,7 +754,12 @@
 
       <article class="approved-reviews-card reveal">
         <h3>Approved Reviews</h3>
-        <p>Published reviews are loaded from a maintained file after moderation.</p>
+        <p>These reviews are approved and published manually to keep this page trustworthy and moderation-friendly.</p>
+        <div class="approved-reviews-trust" aria-label="Review trust signals">
+          <span>Approved before publishing</span>
+          <span>Real guest feedback</span>
+          <span>Maintained by OSLOCATION</span>
+        </div>
         <div id="approvedReviewsList" class="approved-reviews-list"></div>
       </article>
     </div>
@@ -763,17 +769,26 @@
 <section id="booking" aria-labelledby="booking-title">
   <div class="container">
     <div class="section-header reveal">
-      <h2 id="booking-title">Book Your Guiding Experience</h2>
+      <h2 id="booking-title">Request Your Private Oslo Tour</h2>
       <div class="underline"></div>
-      <p>Choose an available time in our booking provider. You'll receive confirmation from the provider, and the team is notified by email.</p>
+      <p>This is a request + approval flow (not instant live availability). Share your preferred time and Kendra confirms what works.</p>
     </div>
 
     <div class="booking-grid">
       <article class="booking-card reveal">
-        <h3>Availability & Booking</h3>
+        <h3>How booking requests work</h3>
+        <ol class="booking-steps">
+          <li><strong>Step 1:</strong> Send your preferred date/time using the request calendar.</li>
+          <li><strong>Step 2:</strong> Kendra reviews your request and availability.</li>
+          <li><strong>Step 3:</strong> You receive a personal approval email with next steps.</li>
+        </ol>
         <p id="booking-provider-note" class="booking-provider-note"></p>
         <ul id="booking-availability-list" class="booking-availability-list"></ul>
-        <a id="booking-link" class="btn-primary booking-action" href="#" target="_blank" rel="noopener">Open booking calendar</a>
+        <a id="booking-link" class="btn-primary booking-action" href="#" target="_blank" rel="noopener">Open request calendar</a>
+        <div class="booking-alt-actions">
+          <a href="mailto:kendra@oslocation.com?subject=Booking%20Request%20for%20OSLOCATION">Request by email</a>
+          <a href="https://wa.me/4790939914" target="_blank" rel="noopener noreferrer">Request on WhatsApp</a>
+        </div>
       </article>
 
       <article id="booking-embed-wrapper" class="booking-card reveal booking-embed-wrapper" hidden>
