@@ -621,6 +621,8 @@ const i18n = {
 let currentLang = localStorage.getItem("oslocation_lang") || "en";
 let currentTestimonial = 0;
 let testimonialInterval;
+const MIN_REVIEW_RATING = 1;
+const MAX_REVIEW_RATING = 5;
 const defaultSiteConfig = {
   booking: {
     providerName: "Calendly",
@@ -876,7 +878,10 @@ function initBookingSection() {
       bookingLink.href = "#";
       bookingLink.addEventListener("click", e => {
         e.preventDefault();
-        alert("Configure OSLOCATION_CONFIG.booking.bookingUrl in site-config.js.");
+        if (providerNote) {
+          providerNote.textContent = `Provider: ${siteConfig.booking.providerName}. Booking link is not configured yet.`;
+        }
+        console.warn("Booking URL is not configured. Set OSLOCATION_CONFIG.booking.bookingUrl in site-config.js.");
       });
     }
   }
@@ -897,7 +902,7 @@ function renderApprovedReviews(reviews) {
     article.className = "approved-review-item";
 
     const ratingNumber = Number(review.rating);
-    const stars = Number.isFinite(ratingNumber) && ratingNumber >= 1 && ratingNumber <= 5
+    const stars = Number.isFinite(ratingNumber) && ratingNumber >= MIN_REVIEW_RATING && ratingNumber <= MAX_REVIEW_RATING
       ? "★".repeat(ratingNumber)
       : "No rating provided";
 
@@ -930,7 +935,7 @@ async function initApprovedReviews() {
     throw new Error("Invalid approved reviews format");
   } catch (error) {
     console.error(error);
-    container.innerHTML = "<p>Reviews are currently unavailable. Please check back later.</p>";
+    container.textContent = "Reviews are currently unavailable. Please check back later.";
   }
 }
 
