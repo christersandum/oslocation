@@ -896,10 +896,10 @@ function renderApprovedReviews(reviews) {
     const article = document.createElement("article");
     article.className = "approved-review-item";
 
-    const ratingNumber = Number.parseInt(review.rating, 10);
+    const ratingNumber = Number(review.rating);
     const stars = Number.isFinite(ratingNumber) && ratingNumber >= 1 && ratingNumber <= 5
       ? "★".repeat(ratingNumber)
-      : "Rating unavailable";
+      : "No rating provided";
 
     const quote = document.createElement("blockquote");
     quote.textContent = review.text || "";
@@ -920,7 +920,7 @@ async function initApprovedReviews() {
   const container = document.getElementById("approvedReviewsList");
   if (!container) return;
   try {
-    const response = await fetch(siteConfig.reviews.approvedReviewsPath, { cache: "no-store" });
+    const response = await fetch(siteConfig.reviews.approvedReviewsPath);
     if (!response.ok) throw new Error(`Failed to load approved reviews: ${response.status}`);
     const data = await response.json();
     if (Array.isArray(data.reviews)) {
@@ -944,7 +944,11 @@ function initReviewForm() {
 
     if (!siteConfig.reviews.submissionEndpoint) {
       console.warn("Review submission endpoint is not configured. Set OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js.");
-      msg.innerHTML = 'Review submission is currently unavailable. Please <a href="#contact">contact us directly</a>.';
+      msg.textContent = "Review submission is currently unavailable.";
+      const contactLink = document.createElement("a");
+      contactLink.href = "#contact";
+      contactLink.textContent = " Contact us directly.";
+      msg.appendChild(contactLink);
       msg.style.display = "block";
       return;
     }
