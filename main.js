@@ -626,11 +626,7 @@ const defaultSiteConfig = {
     providerName: "Calendly",
     bookingUrl: "",
     embedUrl: "",
-    availability: [
-      "Weekday city tours: 09:00, 13:00, 17:00",
-      "Weekend highlights: 10:00 and 14:00",
-      "Private/custom guiding: request preferred times in booking notes"
-    ]
+    availability: []
   },
   reviews: {
     submissionEndpoint: "",
@@ -863,7 +859,10 @@ function initBookingSection() {
 
   if (availabilityList) {
     availabilityList.innerHTML = "";
-    siteConfig.booking.availability.forEach(slot => {
+    const availability = siteConfig.booking.availability.length
+      ? siteConfig.booking.availability
+      : ["Availability is managed in the booking provider calendar."];
+    availability.forEach(slot => {
       const li = document.createElement("li");
       li.textContent = slot;
       availabilityList.appendChild(li);
@@ -898,7 +897,9 @@ function renderApprovedReviews(reviews) {
     article.className = "approved-review-item";
 
     const ratingNumber = Number.parseInt(review.rating, 10);
-    const stars = Number.isFinite(ratingNumber) ? "★".repeat(Math.max(1, Math.min(5, ratingNumber))) : "★★★★★";
+    const stars = Number.isFinite(ratingNumber)
+      ? "★".repeat(Math.max(1, Math.min(5, ratingNumber)))
+      : "Rating unavailable";
 
     const quote = document.createElement("blockquote");
     quote.textContent = review.text || "";
@@ -928,7 +929,8 @@ async function initApprovedReviews() {
     }
     throw new Error("Invalid approved reviews format");
   } catch (error) {
-    container.innerHTML = `<p>Unable to load approved reviews right now.</p>`;
+    console.error(error);
+    container.innerHTML = "<p>Unable to load approved reviews. Please check that data/approved-reviews.json exists and is valid JSON.</p>";
   }
 }
 
@@ -941,7 +943,8 @@ function initReviewForm() {
     e.preventDefault();
 
     if (!siteConfig.reviews.submissionEndpoint) {
-      msg.textContent = "Configure OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js before going live.";
+      console.warn("Review submission endpoint is not configured. Set OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js.");
+      msg.textContent = "Review submission is currently unavailable. Please contact us directly.";
       msg.style.display = "block";
       return;
     }
@@ -970,6 +973,7 @@ function initReviewForm() {
       msg.style.display = "block";
       form.reset();
     } catch (error) {
+      console.error(error);
       msg.textContent = "Submission failed. Please try again or contact us directly.";
       msg.style.display = "block";
     }
