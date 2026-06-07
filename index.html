@@ -56,6 +56,8 @@
         <li><a href="#tours"        data-i18n="nav_tours">Tours</a></li>
         <li><a href="#destinations" data-i18n="nav_destinations">Destinations</a></li>
         <li><a href="#features"     data-i18n="nav_about">About Oslo</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact"      data-i18n="nav_contact">Contact</a></li>
       </ul>
 
@@ -67,7 +69,7 @@
         <button class="lang-btn"        data-lang="no" aria-label="Norsk">🇳🇴 NO</button>
       </div>
 
-      <a href="#contact" class="nav-book btn-primary" data-i18n="nav_book">Book Now</a>
+      <a href="#booking" class="nav-book btn-primary" data-i18n="nav_book">Book Now</a>
     </div>
 
     <!-- Hamburger -->
@@ -217,7 +219,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour1_price">€299</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -245,7 +247,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour2_price">€149</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -273,7 +275,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour3_price">€129</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -301,7 +303,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour4_price">€349</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -329,7 +331,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour5_price">€549</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -357,7 +359,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour6_price">€1,299</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -385,7 +387,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour7_price">€449</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -413,7 +415,7 @@
               <span data-i18n="from_price">From</span>
               <strong data-i18n="tour8_price">€99</strong>
             </div>
-            <a href="#contact" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
+            <a href="#booking" class="btn-book-tour" data-i18n="book_tour">Book Now</a>
           </div>
         </div>
       </article>
@@ -686,7 +688,92 @@
   <div class="container reveal">
     <h2 data-i18n="cta_title">Ready to Experience Oslo?</h2>
     <p data-i18n="cta_subtitle">Let us craft your perfect Norwegian adventure</p>
-    <a href="#contact" class="btn-cta" data-i18n="cta_button">Start Planning</a>
+    <a href="#booking" class="btn-cta" data-i18n="cta_button">Start Planning</a>
+  </div>
+</section>
+
+<section id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="reviews-title">Customer Reviews</h2>
+      <div class="underline"></div>
+      <p>All new reviews are moderated before publishing. Submit your review below for approval.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="reviews-submit-card reveal">
+        <h3>Submit a Review</h3>
+        <p>Your review is sent to our moderation inbox for approval before it appears on this site (typically within 2–3 business days).</p>
+        <div id="review-success-msg" class="form-success" role="alert"></div>
+        <form id="reviewForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-name">Your Name</label>
+              <input id="review-name" name="name" type="text" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label for="review-email">Email Address</label>
+              <input id="review-email" name="email" type="email" required placeholder="Email Address">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-tour">Tour</label>
+              <input id="review-tour" name="tour" type="text" required placeholder="e.g. Oslo City Explorer">
+            </div>
+            <div class="form-group">
+              <label for="review-rating">Rating</label>
+              <select id="review-rating" name="rating" required>
+                <option value="">— Select rating —</option>
+                <option value="5">5 / 5</option>
+                <option value="4">4 / 5</option>
+                <option value="3">3 / 5</option>
+                <option value="2">2 / 5</option>
+                <option value="1">1 / 5</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="review-message">Your Review</label>
+            <textarea id="review-message" name="review" rows="5" required placeholder="Tell future travellers about your experience"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Submit for Approval</button>
+        </form>
+      </article>
+
+      <article class="approved-reviews-card reveal">
+        <h3>Approved Reviews</h3>
+        <p>Published reviews are loaded from a maintained file after moderation.</p>
+        <div id="approvedReviewsList" class="approved-reviews-list"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="booking" aria-labelledby="booking-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="booking-title">Book Your Guiding Experience</h2>
+      <div class="underline"></div>
+      <p>Choose an available time in our booking provider. You'll receive confirmation from the provider, and the team is notified by email.</p>
+    </div>
+
+    <div class="booking-grid">
+      <article class="booking-card reveal">
+        <h3>Availability & Booking</h3>
+        <p id="booking-provider-note" class="booking-provider-note"></p>
+        <ul id="booking-availability-list" class="booking-availability-list"></ul>
+        <a id="booking-link" class="btn-primary booking-action" href="#" target="_blank" rel="noopener">Open booking calendar</a>
+      </article>
+
+      <article id="booking-embed-wrapper" class="booking-card reveal booking-embed-wrapper" hidden>
+        <h3>Book on this page</h3>
+        <iframe id="booking-embed" title="Booking calendar" loading="lazy" sandbox="allow-scripts allow-forms allow-popups" allow="payment 'none'; geolocation 'none'; microphone 'none'; camera 'none'"></iframe>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -873,6 +960,7 @@
   </div>
 </footer>
 
+<script src="site-config.js"></script>
 <script src="main.js"></script>
 <script>
   // Set current year in footer

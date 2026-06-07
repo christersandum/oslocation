@@ -621,6 +621,30 @@ const i18n = {
 let currentLang = localStorage.getItem("oslocation_lang") || "en";
 let currentTestimonial = 0;
 let testimonialInterval;
+const MIN_REVIEW_RATING = 1;
+const MAX_REVIEW_RATING = 5;
+const defaultSiteConfig = {
+  booking: {
+    providerName: "Calendly",
+    bookingUrl: "",
+    embedUrl: "",
+    availability: []
+  },
+  reviews: {
+    submissionEndpoint: "",
+    approvedReviewsPath: "data/approved-reviews.json"
+  }
+};
+const siteConfig = {
+  booking: {
+    ...defaultSiteConfig.booking,
+    ...(window.OSLOCATION_CONFIG?.booking || {})
+  },
+  reviews: {
+    ...defaultSiteConfig.reviews,
+    ...(window.OSLOCATION_CONFIG?.reviews || {})
+  }
+};
 
 /* ── Language Switcher ──────────────────────────────────── */
 function setLanguage(lang) {
@@ -824,6 +848,147 @@ function initContactForm() {
   });
 }
 
+function initBookingSection() {
+  const providerNote = document.getElementById("booking-provider-note");
+  const availabilityList = document.getElementById("booking-availability-list");
+  const bookingLink = document.getElementById("booking-link");
+  const embedWrapper = document.getElementById("booking-embed-wrapper");
+  const embed = document.getElementById("booking-embed");
+
+  if (providerNote) {
+    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}`;
+  }
+
+  if (availabilityList) {
+    availabilityList.innerHTML = "";
+    const availability = siteConfig.booking.availability.length
+      ? siteConfig.booking.availability
+      : ["Availability is managed in the booking provider calendar."];
+    availability.forEach(slot => {
+      const li = document.createElement("li");
+      li.textContent = slot;
+      availabilityList.appendChild(li);
+    });
+  }
+
+  if (bookingLink) {
+    if (siteConfig.booking.bookingUrl) {
+      bookingLink.href = siteConfig.booking.bookingUrl;
+    } else {
+      bookingLink.href = "#";
+      bookingLink.addEventListener("click", e => {
+        e.preventDefault();
+        if (providerNote) {
+          providerNote.textContent = `Provider: ${siteConfig.booking.providerName}. Booking link is not configured yet.`;
+        }
+        console.warn("Booking URL is not configured. Set OSLOCATION_CONFIG.booking.bookingUrl in site-config.js.");
+      });
+    }
+  }
+
+  if (embedWrapper && embed && siteConfig.booking.embedUrl) {
+    embed.src = siteConfig.booking.embedUrl;
+    embedWrapper.hidden = false;
+  }
+}
+
+function renderApprovedReviews(reviews) {
+  const container = document.getElementById("approvedReviewsList");
+  if (!container) return;
+
+  container.innerHTML = "";
+  reviews.forEach(review => {
+    const article = document.createElement("article");
+    article.className = "approved-review-item";
+
+    const ratingNumber = Number(review.rating);
+    const stars = Number.isFinite(ratingNumber) && ratingNumber >= MIN_REVIEW_RATING && ratingNumber <= MAX_REVIEW_RATING
+      ? "★".repeat(ratingNumber)
+      : "No rating provided";
+
+    const quote = document.createElement("blockquote");
+    quote.textContent = review.text || "";
+
+    const footer = document.createElement("footer");
+    const name = review.name || "Guest";
+    const location = review.location ? `, ${review.location}` : "";
+    const tour = review.tour ? ` · ${review.tour}` : "";
+    footer.textContent = `${stars} — ${name}${location}${tour}`;
+
+    article.appendChild(quote);
+    article.appendChild(footer);
+    container.appendChild(article);
+  });
+}
+
+async function initApprovedReviews() {
+  const container = document.getElementById("approvedReviewsList");
+  if (!container) return;
+  try {
+    const response = await fetch(siteConfig.reviews.approvedReviewsPath);
+    if (!response.ok) throw new Error(`Failed to load approved reviews: ${response.status}`);
+    const data = await response.json();
+    if (Array.isArray(data.reviews)) {
+      renderApprovedReviews(data.reviews);
+      return;
+    }
+    throw new Error("Invalid approved reviews format");
+  } catch (error) {
+    console.error(error);
+    container.textContent = "Reviews are currently unavailable. Please check back later.";
+  }
+}
+
+function initReviewForm() {
+  const form = document.getElementById("reviewForm");
+  const msg = document.getElementById("review-success-msg");
+  if (!form || !msg) return;
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    if (!siteConfig.reviews.submissionEndpoint) {
+      console.warn("Review submission endpoint is not configured. Set OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js.");
+      msg.textContent = "Review submission is currently unavailable.";
+      const contactLink = document.createElement("a");
+      contactLink.href = "#contact";
+      contactLink.textContent = " Contact us directly.";
+      msg.appendChild(contactLink);
+      msg.style.display = "block";
+      return;
+    }
+
+    const formData = new FormData(form);
+    const payload = {
+      name: (formData.get("name") || "").toString().trim(),
+      email: (formData.get("email") || "").toString().trim(),
+      tour: (formData.get("tour") || "").toString().trim(),
+      rating: (formData.get("rating") || "").toString().trim(),
+      review: (formData.get("review") || "").toString().trim(),
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(siteConfig.reviews.submissionEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+      msg.textContent = "Thank you! Your review was submitted for moderation.";
+      msg.style.display = "block";
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      msg.textContent = "Submission failed. Please try again or contact us directly.";
+      msg.style.display = "block";
+    }
+  });
+}
+
 /* ── Smooth scroll for anchor links ─────────────────────── */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -882,6 +1047,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initCounters();
   initContactForm();
+  initBookingSection();
+  initReviewForm();
+  initApprovedReviews();
   initSmoothScroll();
   initGallery();
   setLanguage(currentLang);
