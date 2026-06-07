@@ -1,6 +1,7 @@
 window.OSLOCATION_CONFIG = {
   booking: {
     providerName: "Calendly",
+    // Replace with your real provider booking URL before production.
     bookingUrl: "https://calendly.com/YOUR_ACCOUNT/oslocation-guiding",
     embedUrl: "",
     availability: [
@@ -10,6 +11,7 @@ window.OSLOCATION_CONFIG = {
     ]
   },
   reviews: {
+    // Replace with your real review submission endpoint before production.
     submissionEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
     approvedReviewsPath: "data/approved-reviews.json"
   }

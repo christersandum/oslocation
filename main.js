@@ -856,7 +856,7 @@ function initBookingSection() {
   const embed = document.getElementById("booking-embed");
 
   if (providerNote) {
-    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}.`;
+    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}`;
   }
 
   if (availabilityList) {
