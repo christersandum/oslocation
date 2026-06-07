@@ -20,7 +20,7 @@ const i18n = {
     hero_cta2: "Meet Your Guide",
 
     stat1_num: "30+",
-    stat1_label: "Years in Oslo",
+    stat1_label: "Years of Local Experience",
     stat2_num: "2",
     stat2_label: "Languages",
     stat3_num: "4.9",

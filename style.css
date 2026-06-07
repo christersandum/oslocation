@@ -47,7 +47,7 @@ body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  filter: blur(6px);
+  filter: blur(2px);
   pointer-events: none;
   z-index: -1;
 }
@@ -464,7 +464,6 @@ section { padding: 5rem 0; }
   border-radius: var(--radius-lg);
   background: linear-gradient(130deg, rgba(15,47,82,.52), rgba(15,143,169,.38));
   border: 1px solid rgba(255,255,255,.2);
-  backdrop-filter: blur(2px);
 }
 
 .hero-guide-card .guide-name {
@@ -1236,6 +1235,17 @@ section { padding: 5rem 0; }
 .contact-highlight span {
   color: var(--gray);
   font-size: .86rem;
+}
+
+.contact-highlight a {
+  color: var(--gray);
+  font-size: .86rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-highlight a:hover {
+  color: var(--primary);
 }
 
 .contact-intro {
