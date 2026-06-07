@@ -854,7 +854,7 @@ function initBookingSection() {
   const embed = document.getElementById("booking-embed");
 
   if (providerNote) {
-    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}. Configure your provider link in site-config.js.`;
+    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}.`;
   }
 
   if (availabilityList) {
@@ -897,8 +897,8 @@ function renderApprovedReviews(reviews) {
     article.className = "approved-review-item";
 
     const ratingNumber = Number.parseInt(review.rating, 10);
-    const stars = Number.isFinite(ratingNumber)
-      ? "★".repeat(Math.max(1, Math.min(5, ratingNumber)))
+    const stars = Number.isFinite(ratingNumber) && ratingNumber >= 1 && ratingNumber <= 5
+      ? "★".repeat(ratingNumber)
       : "Rating unavailable";
 
     const quote = document.createElement("blockquote");
@@ -930,7 +930,7 @@ async function initApprovedReviews() {
     throw new Error("Invalid approved reviews format");
   } catch (error) {
     console.error(error);
-    container.innerHTML = "<p>Unable to load approved reviews. Please check that data/approved-reviews.json exists and is valid JSON.</p>";
+    container.innerHTML = "<p>Reviews are currently unavailable. Please check back later.</p>";
   }
 }
 
@@ -944,7 +944,7 @@ function initReviewForm() {
 
     if (!siteConfig.reviews.submissionEndpoint) {
       console.warn("Review submission endpoint is not configured. Set OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js.");
-      msg.textContent = "Review submission is currently unavailable. Please contact us directly.";
+      msg.innerHTML = 'Review submission is currently unavailable. Please <a href="#contact">contact us directly</a>.';
       msg.style.display = "block";
       return;
     }
