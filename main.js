@@ -621,6 +621,32 @@ const i18n = {
 let currentLang = localStorage.getItem("oslocation_lang") || "en";
 let currentTestimonial = 0;
 let testimonialInterval;
+const defaultSiteConfig = {
+  booking: {
+    providerName: "Calendly",
+    bookingUrl: "",
+    embedUrl: "",
+    availability: [
+      "Weekday city tours: 09:00, 13:00, 17:00",
+      "Weekend highlights: 10:00 and 14:00",
+      "Private/custom guiding: request preferred times in booking notes"
+    ]
+  },
+  reviews: {
+    submissionEndpoint: "",
+    approvedReviewsPath: "data/approved-reviews.json"
+  }
+};
+const siteConfig = {
+  booking: {
+    ...defaultSiteConfig.booking,
+    ...(window.OSLOCATION_CONFIG?.booking || {})
+  },
+  reviews: {
+    ...defaultSiteConfig.reviews,
+    ...(window.OSLOCATION_CONFIG?.reviews || {})
+  }
+};
 
 /* ── Language Switcher ──────────────────────────────────── */
 function setLanguage(lang) {
@@ -824,6 +850,132 @@ function initContactForm() {
   });
 }
 
+function initBookingSection() {
+  const providerNote = document.getElementById("booking-provider-note");
+  const availabilityList = document.getElementById("booking-availability-list");
+  const bookingLink = document.getElementById("booking-link");
+  const embedWrapper = document.getElementById("booking-embed-wrapper");
+  const embed = document.getElementById("booking-embed");
+
+  if (providerNote) {
+    providerNote.textContent = `Provider: ${siteConfig.booking.providerName}. Configure your provider link in site-config.js.`;
+  }
+
+  if (availabilityList) {
+    availabilityList.innerHTML = "";
+    siteConfig.booking.availability.forEach(slot => {
+      const li = document.createElement("li");
+      li.textContent = slot;
+      availabilityList.appendChild(li);
+    });
+  }
+
+  if (bookingLink) {
+    if (siteConfig.booking.bookingUrl) {
+      bookingLink.href = siteConfig.booking.bookingUrl;
+    } else {
+      bookingLink.href = "#";
+      bookingLink.addEventListener("click", e => {
+        e.preventDefault();
+        alert("Configure OSLOCATION_CONFIG.booking.bookingUrl in site-config.js.");
+      });
+    }
+  }
+
+  if (embedWrapper && embed && siteConfig.booking.embedUrl) {
+    embed.src = siteConfig.booking.embedUrl;
+    embedWrapper.hidden = false;
+  }
+}
+
+function renderApprovedReviews(reviews) {
+  const container = document.getElementById("approvedReviewsList");
+  if (!container) return;
+
+  container.innerHTML = "";
+  reviews.forEach(review => {
+    const article = document.createElement("article");
+    article.className = "approved-review-item";
+
+    const ratingNumber = Number.parseInt(review.rating, 10);
+    const stars = Number.isFinite(ratingNumber) ? "★".repeat(Math.max(1, Math.min(5, ratingNumber))) : "★★★★★";
+
+    const quote = document.createElement("blockquote");
+    quote.textContent = review.text || "";
+
+    const footer = document.createElement("footer");
+    const name = review.name || "Guest";
+    const location = review.location ? `, ${review.location}` : "";
+    const tour = review.tour ? ` · ${review.tour}` : "";
+    footer.textContent = `${stars} — ${name}${location}${tour}`;
+
+    article.appendChild(quote);
+    article.appendChild(footer);
+    container.appendChild(article);
+  });
+}
+
+async function initApprovedReviews() {
+  const container = document.getElementById("approvedReviewsList");
+  if (!container) return;
+  try {
+    const response = await fetch(siteConfig.reviews.approvedReviewsPath, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Failed to load approved reviews: ${response.status}`);
+    const data = await response.json();
+    if (Array.isArray(data.reviews)) {
+      renderApprovedReviews(data.reviews);
+      return;
+    }
+    throw new Error("Invalid approved reviews format");
+  } catch (error) {
+    container.innerHTML = `<p>Unable to load approved reviews right now.</p>`;
+  }
+}
+
+function initReviewForm() {
+  const form = document.getElementById("reviewForm");
+  const msg = document.getElementById("review-success-msg");
+  if (!form || !msg) return;
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    if (!siteConfig.reviews.submissionEndpoint) {
+      msg.textContent = "Configure OSLOCATION_CONFIG.reviews.submissionEndpoint in site-config.js before going live.";
+      msg.style.display = "block";
+      return;
+    }
+
+    const formData = new FormData(form);
+    const payload = {
+      name: (formData.get("name") || "").toString().trim(),
+      email: (formData.get("email") || "").toString().trim(),
+      tour: (formData.get("tour") || "").toString().trim(),
+      rating: (formData.get("rating") || "").toString().trim(),
+      review: (formData.get("review") || "").toString().trim(),
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(siteConfig.reviews.submissionEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+      msg.textContent = "Thank you! Your review was submitted for moderation.";
+      msg.style.display = "block";
+      form.reset();
+    } catch (error) {
+      msg.textContent = "Submission failed. Please try again or contact us directly.";
+      msg.style.display = "block";
+    }
+  });
+}
+
 /* ── Smooth scroll for anchor links ─────────────────────── */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -882,6 +1034,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initCounters();
   initContactForm();
+  initBookingSection();
+  initReviewForm();
+  initApprovedReviews();
   initSmoothScroll();
   initGallery();
   setLanguage(currentLang);
